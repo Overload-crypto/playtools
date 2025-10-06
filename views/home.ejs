@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="theme-color" content="#070b1d">
+
+    <!-- iOS-specific settings -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Play Tools Pro">
+    <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
+    <script src="https://files.bpcontent.cloud/2025/08/07/11/20250807111821-CTEU70PY.js" defer></script> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Tools Pro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --base-color:white;
+    --base-variant:#e8e9ed;
+    --text-coolor:#111528;
+    --secondary-text:#232738;
+    --primary-color:#3a435d;
+    --accent-color:#0071ff;
+}
+
+.darkmode{
+    --base-color:#070b1d;
+    --base-variant:#101425;
+    --text-coolor:#fff;
+    --secondary-text:#a4a5b8;
+    --primary-color:#3a435d;
+    --accent-color:#0071ff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Noto',sans-serif;
+}
+
+body{
+    overflow: hidden;
+    background-color: var(--base-color);
+}
+
+header{
+    width:100vw;
+    height:70px;
+    padding:1rem;
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.336);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li{
+    list-style: none; 
+    font-size: 1.2rem;
+    color: grey;
+    cursor: pointer;
+}
+
+main{
+    width:100vw;
+    height: calc(100vh - 70px);
+    display: flex;
+    justify-content: space-between;
+}
+
+.head{
+    background-image:linear-gradient(60deg,#00fe61,#00ffff);
+    background-clip: text;
+    color:transparent;
+}
+
+.navbar-items{
+    width:100%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap:1rem;
+}
+
+
+.navbar{
+    width:150px;
+    height:400px;
+    background-color: rgba(0, 0, 0, 0.267);
+    align-self: center;
+    margin-left:.5rem;
+    border-radius: 30px;
+}
+
+section{
+    width:calc(100vw - 150px);
+    height:100%;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(100px,300px));
+    grid-template-rows: repeat(10,minmax(40vh,60vh));
+    gap:1rem;
+    grid-auto-flow: row;
+    padding: 1rem;
+    justify-content:center ;
+}
+
+img{
+    object-fit: cover;
+    width: 100%;
+    height:100%;
+    border-radius: 30px;
+}
+
+.card{
+    background-color: grey;
+    border-radius: 30px;
+    margin: 1rem;
+    cursor: pointer;
+
+}
+.card:hover{
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+
+.install.active{
+    width:30vw;
+    height:70px;
+    background-image:linear-gradient(60deg,#29da6d,#03b1b1);
+    cursor: pointer;
+    z-index: 1000;
+    top:80%;
+    color: aliceblue;
+    left:50%;
+    position: fixed;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    border:transparent;
+    border-radius:30px;
+}
+
+
+.card.active{
+    margin:0;
+    z-index:1000;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-60%);
+    width:50%;
+    height:70%;
+}
+
+.x.active{
+    top:10%;
+    left:95%;
+    position: fixed;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: whitesmoke;
+    z-index: 10000;
+}
+
+
+
+
+
+
+
+@media screen and (max-width:750px) {
+    .navbar{
+        width:70vw;
+        height:70px;
+        z-index: 100;
+        position: fixed;
+        left:50%;
+        top:90%;
+        transform: translate(-50%,-50%);
+        background-color: hsla(0, 1%, 13%, 0.336);
+        backdrop-filter: blur(5px);
+    }
+    section{
+        width: 100vw;
+    }
+    main{
+        padding: 0;
+        margin: 0;
+    }
+
+    .navbar-items{
+        width:100%;
+        height:100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        gap:1rem;
+    }
+
+
+    .install.active{
+        width:70vw;
+        height:70px;
+        background-image:linear-gradient(60deg,#29da6d,#03b1b1);
+        cursor: pointer;
+        z-index: 1000;
+        top:80%;
+        color: aliceblue;
+        left:50%;
+        position: fixed;
+        transform: translateX(-50%);
+        font-size: 1.2rem;
+        border:transparent;
+        border-radius:30px;
+    }
+
+
+    .card.active{
+        margin:0;
+        z-index:1000;
+        position: fixed;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        width:70%;
+        height:50%;
+    }
+
+}
+
+
+
+.items{
+    font-size: 1.2rem;
+    color:white;
+}
+
+.cover.active{
+    width:100vw;
+    height:100vh;
+    background-color: rgba(0, 0, 0, 0.651);
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:500;
+}
+
+.head-div{
+    width:60vw;
+    height:70px;
+    display:flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: row;
+    gap: 1rem;
+    padding-right: 1rem;
+}
+.buttons{
+    width:200px;
+    height:60%;
+    color:white;
+    background-image: linear-gradient(60deg,#00fe61,#00ffff);
+    border:transparent;
+    border-radius: 3px;
+    cursor: pointer;    
+}
+
+a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration:none ;
+}
+
+#theme-switch{
+    width:10vh;
+    height:10vh;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    z-index: 10000000;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top:auto;
+    bottom:10%;
+    left:90%;
+    border:transparent;
+}
+
+    </style>
+        <link rel="manifest" href="/manifest.json">
+    <link href="https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons@3.3.1/css/all/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <button id="theme-switch"><i class="fi fi-tr-background"></i></button>
+    <header>
+        <h1 class="head">Play Tools</h1>
+        <div class="head-div">
+                <li><i class="fi fi-br-circle-user"></i></li>
+                <button class="buttons" id="installButton">Download the App</button>
+                <a class="buttons" href="https://apps.microsoft.com/detail/9NBLGGH2JHXJ?hl=en-us&gl=KE&ocid=pdpshare">Download Minecraft for PC</a>
+        </div>
+    </header>
+    <main>
+        <nav class="navbar">
+            <ul class="navbar-items">
+                <li class="items"><i class="fi fi-br-search"></i></li>
+                <li class="items"><i class="fi fi-sr-multiple"></i></li>
+                <li class="items"><i class="fi fi-ss-home"></i></li>
+                <li class="items"><i class="fi fi-bs-location-arrow"></i></li>
+            </ul>
+        </nav>
+        <section>
+            <div class="card card1"><img src="images/cool.webp" alt=""></div>
+            <div class="card card2"><img src="images/fortnite.webp" alt=""></div>
+            <div class="card card3"><img src="images/cooling.avif" alt=""></div>
+            <div class="card card4"><img src="images/roblox.avif" alt=""></div>
+            <div class="card card5"><img src="images/pokemon.avif" alt=""></div>
+            <div class="card card6"><img src="images/fc.avif" alt=""></div>
+            <div class="card card7"><img src="images/nba_.avif" alt=""></div>
+            <div class="card card8"><img src="images/carracing.jpg" alt=""></div>
+            <div class="card card9"><img src="images/cc.jpg" alt=""></div>
+            <div class="card card10"><img src="images/sonic.jpg" alt=""></div>
+        </section>
+    </main>
+
+    <div class="cover">
+
+    </div>
+   <a href="https://apktoy.com/download/com.mojang.minecraftpe_1.21.111.1_free.html"><button class="install">Install</button></a>
+    <i class="fi fi-br-cross x"></i>
+    
+<script>
+    const card = document.querySelectorAll('.card');
+const cover = document.querySelector('.cover');
+const install = document.querySelector('.install')
+const x = document.querySelector('.x');
+
+card.forEach(
+    (card)=>{
+        card.addEventListener('click',()=>{
+            cover.classList.add('active');
+            card.classList.add('active');
+            install.classList.add('active');
+            x.classList.add('active')
+            
+
+            x.addEventListener('click',()=>{
+            cover.classList.remove('active');
+            card.classList.remove('active');
+            install.classList.remove('active');
+            x.classList.remove('active')
+})
+    
+        }
+)});
+
+
+
+
+// theme code
+const darkmode = localStorage.getItem('darkmode');
+const themeSwitch = document.getElementById('theme-switch')
+
+const enableDarkmode = ()=>{
+    document.body.classList.add('darkmode')
+    localStorage.setItem('darkmode','active')
+}
+
+const disableDarkmode = ()=>{
+    document.body.classList.remove('darkmode')
+    localStorage.setItem('darkmode',null)
+} 
+
+
+
+if(darkmode === "active")enableDarkmode()
+
+
+
+themeSwitch.addEventListener("click",()=>{
+    let darkmode = localStorage.getItem('darkmode')
+    if (darkmode !== "active") { 
+        enableDarkmode();
+    }
+    else{
+        disableDarkmode();
+    }
+});
+
+
+
+
+//pwa
+let deferredPrompt;
+const installButton = document.getElementById('installButton');
+
+// Hide the install button initially
+installButton.style.display = 'none';
+
+// Listen for the 'beforeinstallprompt' event
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installButton.style.display = 'block'; // Show the custom install button
+});
+
+// When the user clicks the "Download the App" button
+installButton.addEventListener('click', async () => {
+  if (!deferredPrompt) {
+    console.log('No install prompt available yet.');
+    return;
+  }
+
+  // Show the install prompt
+  deferredPrompt.prompt();
+
+  // Wait for the user's choice
+  const { outcome } = await deferredPrompt.userChoice;
+  console.log(`User response to the install prompt: ${outcome}`);
+
+  // Clear the deferred prompt so it can’t be used again
+  deferredPrompt = null;
+
+  // Hide the button
+  installButton.style.display = 'none';
+});
+
+// Register Service Worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log('Service Worker registered', reg))
+      .catch(err => console.log('SW registration failed', err));
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // In your main application's JavaScript file (e.g., main.js)
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch(error => {
+                    console.error('Service Worker registration failed:', error);
+                });
+        });
+    }
+
+
+</script>
+</body>
+</html>
+
